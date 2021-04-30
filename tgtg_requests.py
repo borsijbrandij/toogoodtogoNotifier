@@ -14,7 +14,7 @@ def get_new_items(oldDict, newDict):
 
 def send_to_notify_run(new_items, endpoint):
     print("New magic boxes found! Check notify run channel!")
-    notify = Notify(endpoint=endpoint[0])
+    notify = Notify(endpoint=endpoint)
     for item in new_items.values():
         name = item[0][1]
         loc = item[0][2]

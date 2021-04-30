@@ -16,8 +16,7 @@ def start_listening():
     print("Starting listening...")
     notify_run_endpoint = get_notify_run_channel()
     print(
-        "Reminder, you can subscribe for notifications at: "
-        + str(notify_run_endpoint[0])
+        "Reminder, you can subscribe for notifications at: " + str(notify_run_endpoint)
     )
     user_id = get_user_id_from_file()
 

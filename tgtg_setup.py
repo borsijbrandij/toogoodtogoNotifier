@@ -56,7 +56,6 @@ def login(email, pw):
     response, code = send_request(data=data)
     if code == 200:
         success = True
-        print(response)
         save_tokens_to_file(response)
 
     else:

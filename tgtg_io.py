@@ -64,4 +64,4 @@ def save_notify_run_settings(notify):
 
 def get_notify_run_channel_disk():
     with open("./data/notify_channel.txt", "r") as channel_file:
-        return channel_file.readlines()
+        return channel_file.readlines()[0]
