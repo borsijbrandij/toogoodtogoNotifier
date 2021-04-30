@@ -129,9 +129,8 @@ dmypy.json
 .pyre/
 
 # Local files
-./data
+data
 ./*.json
 *.json
-
-# test file
-./test.py
+test.py
+data/notify_channel.txt
