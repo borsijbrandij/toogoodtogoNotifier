@@ -1,11 +1,18 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import requests
 import json
 import os
 from tgtg_io import get_tokens_from_file
 from notify_run import Notify
+import time
 
 
 def get_new_items(oldDict, newDict):
+    """
+    Compares two dicts and a dict with items that are new
+    """
     newItemDict = newDict.copy()
     for key in oldDict:
         newItemDict.pop(key, None)
@@ -13,6 +20,10 @@ def get_new_items(oldDict, newDict):
 
 
 def send_to_notify_run(new_items, endpoint):
+    """
+    Composes messages to send to notify run and sends them to the notify run channel.
+    Sends a message for each new item in the new_items dict.
+    """
     print("New magic boxes found! Check notify run channel!")
     notify = Notify(endpoint=endpoint)
     for item in new_items.values():
@@ -67,6 +78,11 @@ def parse_dict(json_response):
 
 
 def get_fav_items(user_id):
+    """
+    Requests a user's favourite items from the toogoodtogo server.
+    Tries again if there is a connection error.
+    Refreshes tokens when access token has expired.
+    """
     favs_url = "https://apptoogoodtogo.com/api/item/v7/"
 
     auth_token, _ = get_tokens_from_file()

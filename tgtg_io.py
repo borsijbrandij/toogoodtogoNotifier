@@ -4,10 +4,16 @@ import os
 
 
 def check_notify_files_exist():
+    """
+    Checks if all the necessary files for notify run are on disk.
+    """
     return os.path.isfile("./data/notify_channel.txt")
 
 
 def check_tokens_exist():
+    """
+    Checks if access tokens are on disk.
+    """
     return os.path.isfile("./data/tokens.json")
 
 
@@ -63,5 +69,8 @@ def save_notify_run_settings(notify):
 
 
 def get_notify_run_channel_disk():
+    """
+    Reads and returns notify run channel url from saved file.
+    """
     with open("./data/notify_channel.txt", "r") as channel_file:
         return channel_file.readlines()[0]

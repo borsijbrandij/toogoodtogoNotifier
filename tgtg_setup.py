@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import time
 import getpass
 from tgtg_requests import send_request
@@ -59,6 +62,7 @@ def login(email, pw):
         save_tokens_to_file(response)
 
     else:
+        print(response)
         success = False
     return success
 
