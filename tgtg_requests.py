@@ -41,7 +41,8 @@ def send_to_notify_run(new_items, endpoint):
         )
         try:
             notify.send(message)
-        except:
+        except Exception as e:
+            print(e)
             time.sleep(5)
             send_to_notify_run(newItems)
 

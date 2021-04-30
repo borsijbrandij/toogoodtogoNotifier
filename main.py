@@ -48,7 +48,6 @@ def start_listening():
     user_id = get_user_id_from_file()
 
     # Setup variables
-    starttime = time.time()
     notify = get_notify_run_channel()
 
     old_items = {}
@@ -63,7 +62,7 @@ def start_listening():
             send_to_notify_run(new_items, notify)
 
         # Wait 15 seconds before sending new query to server
-        time.sleep(15.0 - ((time.time() - starttime) % 15.0))
+        time.sleep(15.0)
 
         old_items = current_items
 
