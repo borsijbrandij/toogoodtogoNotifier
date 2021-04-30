@@ -1,4 +1,4 @@
-# toogoodtogo Notifier
+# Too Good to Go Notifier
 Too Good to Go is app where restaurants and shops can offer "magix boxes" with leftover items with high discounts. Because these magic boxes can be put online at any moment it can be usefull to get a notification when one of your favourite companies has new magic boxes are available. 
 
 This python program that queries toogoodtogo servers to check if new magic-boxes are available. 
