@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 base_url = 'https://apptoogoodtogo.com/api/auth/v2/loginByEmail'
 std_headers = {'Host': 'apptoogoodtogo.com', 'user-agent': 'TGTG/21.1.3 Dalvik/2.1.0 (Linux; U; Android 10; Mi 9T Pro Build/QQ3A.200805.001)', 'accept-language': 'nl-NL', 'content-type': 'application/json; charset=utf-8',
@@ -14,6 +15,8 @@ def save_tokens_to_file(response):
     tokens = {}
     tokens['access_token'] = response['access_token']
     tokens['refresh_token'] = response['refresh_token']
+    if not os.path.exists('./data'):
+        os.makedirs('./data')
     with open('./data/tokens.json', 'w') as f:
         json.dump(tokens, f)
 
@@ -48,6 +51,4 @@ def login(email, pw):
         save_tokens_to_file(response)
     else:
         success = False
-    print(response)
-    print(code)
     return success
